@@ -50,9 +50,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Organization"
-        ],
+        "tags": ["Organization"],
         "parameters": [
           {
             "name": "_limit",
@@ -238,9 +236,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Organization"
-        ],
+        "tags": ["Organization"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -305,9 +301,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Organization"
-        ],
+        "tags": ["Organization"],
         "parameters": []
       }
     },
@@ -358,9 +352,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Organization"
-        ],
+        "tags": ["Organization"],
         "parameters": [
           {
             "name": "id",
@@ -420,9 +412,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Organization"
-        ],
+        "tags": ["Organization"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -494,9 +484,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Organization"
-        ],
+        "tags": ["Organization"],
         "parameters": [
           {
             "name": "id",
@@ -514,7 +502,7 @@
     "/organizations/id/findFirst": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Finds the first organization by createdDate",
         "responses": {
           "200": {
             "description": "response",
@@ -562,9 +550,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Organization"
-        ],
+        "tags": ["Organization"],
         "parameters": []
       }
     }
@@ -572,10 +558,7 @@
   "components": {
     "schemas": {
       "Organization": {
-        "required": [
-          "id",
-          "title"
-        ],
+        "required": ["id", "title"],
         "properties": {
           "id": {
             "type": "string"
@@ -586,10 +569,7 @@
           "jobs": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "title"
-              ],
+              "required": ["id", "title"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -627,11 +607,7 @@
           "users": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
+              "required": ["id", "username", "email"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -685,9 +661,7 @@
         }
       },
       "NewOrganization": {
-        "required": [
-          "title"
-        ],
+        "required": ["title"],
         "properties": {
           "title": {
             "type": "string"
