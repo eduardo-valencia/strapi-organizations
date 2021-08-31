@@ -1,6 +1,6 @@
 "use strict";
 
-const { buildQuery } = require("strapi-utils");
+const { sanitizeEntity } = require("strapi-utils");
 
 module.exports = {
   /**
@@ -9,16 +9,11 @@ module.exports = {
    * @return {Object}
    */
 
-  async findFirst({ ctx }) {
-    const { organization } = strapi.models;
-    const organizations = await buildQuery({
-      model: organization,
-      filters: { limit: 1 },
-      sort: [{ field: "createdAt", order: "asc" }],
+  async findFirst() {
+    const organization = await strapi.services.organization.findOne({
+      _sort: "createdAt:asc",
+      _publicationState: "live",
     });
-    if (organizations.length) {
-      return organizations[0];
-    }
-    return ctx.throw(404, "Could not find an organization in Organization.");
+    return sanitizeEntity(organization, { model: strapi.models.organization });
   },
 };
