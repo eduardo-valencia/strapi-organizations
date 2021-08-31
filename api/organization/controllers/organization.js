@@ -1,6 +1,6 @@
 "use strict";
 
-const { buildQuery } = require("strapi-utils");
+const { sanitizeEntity } = require("strapi-utils");
 
 module.exports = {
   /**
@@ -10,11 +10,10 @@ module.exports = {
    */
 
   async findFirst() {
-    const { organization } = strapi.models;
-    return buildQuery({
-      model: organization,
-      filters: { limit: 1 },
-      sort: [{ field: "createdAt", order: "asc" }],
+    const organization = await strapi.services.organization.findOne({
+      _sort: "createdAt:asc",
+      _publicationState: "live",
     });
+    return sanitizeEntity(organization, { model: strapi.models.organization });
   },
 };
