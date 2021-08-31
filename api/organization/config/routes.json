@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/organizations/id/findFirst",
+      "handler": "organization.findFirst",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/organizations",
       "handler": "organization.create",
