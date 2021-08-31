@@ -9,12 +9,16 @@ module.exports = {
    * @return {Object}
    */
 
-  async findFirst() {
+  async findFirst({ ctx }) {
     const { organization } = strapi.models;
-    return buildQuery({
+    const organizations = await buildQuery({
       model: organization,
       filters: { limit: 1 },
       sort: [{ field: "createdAt", order: "asc" }],
     });
+    if (organizations.length) {
+      return organizations[0];
+    }
+    return ctx.throw(404, "Could not find an organization in Organization.");
   },
 };
