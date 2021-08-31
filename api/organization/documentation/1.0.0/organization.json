@@ -502,7 +502,7 @@
     "/organizations/id/findFirst": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Finds the first organization in Organization",
         "responses": {
           "200": {
             "description": "response",
